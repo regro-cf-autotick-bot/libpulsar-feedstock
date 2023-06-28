@@ -10,7 +10,7 @@ source:
   sha256: 4b8016303f55bd0c02f9b0c11c637b0916d91dba4a68498ced8d74de5b95dc42
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   # pulsar doesn't give any ABI guarantees
   run_exports:
