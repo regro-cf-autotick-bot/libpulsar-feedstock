@@ -18,6 +18,11 @@ if [[ "${target_platform}" == "osx-64" ]]; then
   export CXXFLAGS="-DBOOST_ASIO_DISABLE_STD_ALIGNED_ALLOC ${CXXFLAGS}"
 fi
 
+# point to a usable protoc if we're running on a different architecture than the target
+if [[ "${build_platform}" != "${target_platform}" ]]; then
+    CMAKE_ARGS="${CMAKE_ARGS} -DProtobuf_PROTOC_EXECUTABLE=$BUILD_PREFIX/bin/protoc"
+fi
+
 cmake $CMAKE_ARGS \
     -DPROTOBUF_USE_DLLS=ON \
     -DBUILD_STATIC_LIB=OFF \

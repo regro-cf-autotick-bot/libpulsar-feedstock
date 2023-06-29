@@ -23,6 +23,7 @@ requirements:
     - cmake
     - ninja
     - sed
+    - libprotobuf  # [build_platform != target_platform]
   host:
     - boost-cpp
     - gmock
