@@ -8,10 +8,11 @@ package:
 source:
   url: https://github.com/apache/pulsar-client-cpp/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 4b8016303f55bd0c02f9b0c11c637b0916d91dba4a68498ced8d74de5b95dc42
+  patches:
+    - 0001-Link-to-abseil-on-Windows.patch  # [win and (libprotobuf != "3.21")]
 
 build:
   number: 2
-  skip: true  # [win]
   # pulsar doesn't give any ABI guarantees
   run_exports:
     - {{ pin_subpackage('libpulsar', max_pin='x.x.x') }}
@@ -22,10 +23,12 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - ninja
-    - sed
+    - sed     # [not win]
+    - m2-sed  # [win]
     - libprotobuf  # [build_platform != target_platform]
   host:
     - boost-cpp
+    - dlfcn-win32  # [win]
     - gmock
     - gtest
     - libcurl
@@ -37,7 +40,9 @@ requirements:
 
 test:
   commands:
-    - test -f $PREFIX/lib/libpulsar${SHLIB_EXT}
+    - test -f $PREFIX/lib/libpulsar${SHLIB_EXT}  # [not win]
+    - if not exist %LIBRARY_PREFIX%/bin/pulsar.dll exit 1  # [win]
+    - if not exist %LIBRARY_PREFIX%/lib/pulsar.lib exit 1  # [win]
 
 
 about:
@@ -46,6 +51,8 @@ about:
   license_family: Apache
   license_file: LICENSE
   summary: Apache Pulsar C++ client library
+  dev_url: https://github.com/apache/pulsar-client-cpp
+  doc_url: https://pulsar.apache.org/docs/3.0.x/client-libraries
 
 extra:
   recipe-maintainers:

@@ -9,6 +9,10 @@ Package license: Apache-2.0
 
 Summary: Apache Pulsar C++ client library
 
+Development: https://github.com/apache/pulsar-client-cpp
+
+Documentation: https://pulsar.apache.org/docs/3.0.x/client-libraries
+
 Current build status
 ====================
 
@@ -94,6 +98,20 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=19629&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/libpulsar-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_libprotobuf4.23.3" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_libprotobuf3.21</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=19629&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/libpulsar-feedstock?branchName=main&jobName=win&configuration=win%20win_64_libprotobuf3.21" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_libprotobuf4.23.3</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=19629&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/libpulsar-feedstock?branchName=main&jobName=win&configuration=win%20win_64_libprotobuf4.23.3" alt="variant">
                 </a>
               </td>
             </tr>
