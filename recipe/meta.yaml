@@ -10,9 +10,10 @@ source:
   sha256: 4b8016303f55bd0c02f9b0c11c637b0916d91dba4a68498ced8d74de5b95dc42
   patches:
     - 0001-Link-to-abseil-on-Windows.patch  # [win and (libprotobuf != "3.21")]
+    - 0001-Remove-Werror.patch
 
 build:
-  number: 2
+  number: 3
   # pulsar doesn't give any ABI guarantees
   run_exports:
     - {{ pin_subpackage('libpulsar', max_pin='x.x.x') }}

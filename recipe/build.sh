@@ -24,6 +24,7 @@ if [[ "${build_platform}" != "${target_platform}" ]]; then
 fi
 
 cmake $CMAKE_ARGS \
+    -DOPENSSL_ROOT_DIR=${PREFIX} \
     -DPROTOBUF_USE_DLLS=ON \
     -DBUILD_STATIC_LIB=OFF \
     -DCMAKE_CXX_STANDARD=17 \
