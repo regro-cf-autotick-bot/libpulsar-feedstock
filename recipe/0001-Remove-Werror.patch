@@ -1,0 +1,24 @@
+From d910c9a70abd9c18c8bc18930e17d39a19c98d4c Mon Sep 17 00:00:00 2001
+From: "Uwe L. Korn" <uwe.korn@quantco.com>
+Date: Mon, 11 Sep 2023 17:00:51 +0200
+Subject: [PATCH] Remove Werror
+
+---
+ CMakeLists.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3cf5e99..28a635c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -99,7 +99,6 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Intel")
+     # ?? Don't have this to test with
+ else() # GCC or Clang are mostly compatible:
+     # Turn on warnings and enable warnings-as-errors:
+-    add_compile_options(-Wall -Wformat-security -Wvla -Werror) 
+     # Turn off certain warnings that are too much pain for too little gain:
+     add_compile_options(-Wno-sign-compare -Wno-deprecated-declarations -Wno-error=cpp)
+     if (CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" OR APPLE)
+-- 
+2.42.0
+
