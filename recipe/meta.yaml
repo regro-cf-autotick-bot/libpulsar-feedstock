@@ -17,6 +17,8 @@ build:
   # pulsar doesn't give any ABI guarantees
   run_exports:
     - {{ pin_subpackage('libpulsar', max_pin='x.x.x') }}
+  ignore_run_exports:
+    - libboost  # [win]
 
 requirements:
   build:
@@ -28,10 +30,12 @@ requirements:
     - m2-sed  # [win]
     - libprotobuf  # [build_platform != target_platform]
   host:
-    - libboost-headers
     - dlfcn-win32  # [win]
     - gmock
     - gtest
+    - libboost-headers
+    # windows build needs to find CMake metadata
+    - libboost-devel  # [win]
     - libcurl
     - libprotobuf
     - openssl
