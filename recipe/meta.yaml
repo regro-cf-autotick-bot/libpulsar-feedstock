@@ -19,6 +19,7 @@ build:
     - {{ pin_subpackage('libpulsar', max_pin='x.x.x') }}
   ignore_run_exports:
     - libboost  # [win]
+    - gtest
 
 requirements:
   build:
