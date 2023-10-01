@@ -13,7 +13,7 @@ source:
     - 0001-Remove-Werror.patch
 
 build:
-  number: 3
+  number: 4
   # pulsar doesn't give any ABI guarantees
   run_exports:
     - {{ pin_subpackage('libpulsar', max_pin='x.x.x') }}
@@ -28,7 +28,7 @@ requirements:
     - m2-sed  # [win]
     - libprotobuf  # [build_platform != target_platform]
   host:
-    - boost-cpp
+    - libboost-headers
     - dlfcn-win32  # [win]
     - gmock
     - gtest
