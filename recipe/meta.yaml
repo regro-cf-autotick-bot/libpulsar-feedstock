@@ -13,7 +13,7 @@ source:
     - 0001-Remove-Werror.patch
 
 build:
-  number: 4
+  number: 5
   # pulsar doesn't give any ABI guarantees
   run_exports:
     - {{ pin_subpackage('libpulsar', max_pin='x.x.x') }}
