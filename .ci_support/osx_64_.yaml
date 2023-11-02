@@ -15,7 +15,7 @@ cxx_compiler_version:
 libcurl:
 - '8'
 libprotobuf:
-- 4.24.3
+- 4.24.4
 macos_machine:
 - x86_64-apple-darwin13.4.0
 openssl:

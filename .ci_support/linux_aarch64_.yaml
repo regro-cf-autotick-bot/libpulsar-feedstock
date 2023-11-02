@@ -21,7 +21,7 @@ docker_image:
 libcurl:
 - '8'
 libprotobuf:
-- 4.24.3
+- 4.24.4
 openssl:
 - '3'
 snappy:
