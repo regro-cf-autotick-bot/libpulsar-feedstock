@@ -1,5 +1,5 @@
 {% set name = "libpulsar" %}
-{% set version = "3.2.0" %}
+{% set version = "3.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://github.com/apache/pulsar-client-cpp/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 4b8016303f55bd0c02f9b0c11c637b0916d91dba4a68498ced8d74de5b95dc42
+  sha256: 622dd5b7c8e5d4daa573282cb861a663c0795a97dedbe66422a7d8f4f2eb42d6
   patches:
     - 0001-Link-to-abseil-on-Windows.patch  # [win and (libprotobuf != "3.21")]
     - 0001-Remove-Werror.patch
 
 build:
-  number: 6
+  number: 0
   # pulsar doesn't give any ABI guarantees
   run_exports:
     - {{ pin_subpackage('libpulsar', max_pin='x.x.x') }}
